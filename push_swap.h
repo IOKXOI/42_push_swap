@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:46 by sydauria          #+#    #+#             */
-/*   Updated: 2022/04/18 16:57:28 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/04/24 19:15:03 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,21 @@ typedef struct s_storage
 {
 	t_sub		*sequence;
 	int 		lis_size;
-	t_storage 	*next;	
+	t_storage 	*next;
 }t_storage;
+
+typedef struct s_stacks
+{
+	t_stacks 	*prev;
+	int 		value;
+	t_stacks	*next;
+} t_stacks;
+
+typedef struct s_save
+{
+	t_stacks	*first;
+	int			size;
+	t_stacks	*last;
+} t_save;
 
 # endif

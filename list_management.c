@@ -6,46 +6,69 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 20:08:00 by sydauria          #+#    #+#             */
-/*   Updated: 2022/04/15 14:52:04 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/04/28 12:36:14 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-t_struct	*create_and_init_node(t_struct *first_node, t_struct last_node);
+int init_stacks(int *input, t_save *stack_a, t_save *stack_b)
 {
-	t_struct	*new_node;
+	int			i;
+	t_stacks	*tmp_a;
+	t_stacks	*tmp_b;
 
-	new_node = (sizeof(t_struct));
-	if (!new_node)
-		return (NULL);
-	last_node->next = new_node;
-	new_node->value = 0;
-	new_node->prev = last_node; 
-	first_node->prev = new_node;
-	return (new_node);
-}
-
-void sa(t_struct *first_node, t_struct *second_node)
-{
-	if(first_node->next)
+	i = 0;
+	if (stack_a->first == NULL)
+		stack_a->first = malloc(sizeof(t_stacks));
+		if (!stack_a->first)
+			return (-1);
+	tmp_a = stack_a->first;
+	if (stack_b->first == NULL)
+		stack_b->first = malloc(sizeof(t_stacks));
+		if (!stack_b->first)
+				return (-1);
+	tmp_b = stack_b->first;
+	while (input[i])
 	{
-		second_node->previous = first_node->previous;
-		first_node->previous->next = second_node;
-		first_node->previous = second_node;
-		first_node->next = second_node->next;
-		second_node->next = first_node;
+		tmp_a->value = input[i];
+		if (input[i + 1])
+		{
+			tmp_a->next = malloc(sizeof(t_stacks));
+			if (!tmp_a->next)
+				return (-1);
+			tmp_b->next = malloc(sizeof(t_stacks));
+			if (!tmp_b->next)
+				return (-1);
+			tmp_a->next->prev = tmp_a;
+			tmp_b->next->prev = tmp_b;
+			tmp_a = tmp_a->next;
+			tmp_b = tmp_b->next;
+		}
+		i++;
 	}
+	stack_a->last = tmp_a;
+	stack_b->last = tmp_b;
+	stack_a->last->next = stack_a->first;
+	stack_a->first->prev = stack_a->last;
+	stack_b->last->next = stack_b->first;
+	stack_b->first->prev = stack_b->last;
 }
 
-void ra(t_struct *first_node, t_struct *last_node)
+int fill_stack(int *input, t_stacks *stack_a) //t_save stack_a->first;
 {
-	if (!first_node || !last_node)
-		return (NULL);
-	last_node->next = first_node->next;
-	first_node->next = last_node;
-	first_node->previous = last_node->previous;
-	last_node->previous = first_node;
+	int	i;
+
+	i = 0;
+	if (check_duplicate(input) < 0)
+		return (-1);
+	while (input[i])
+	{
+		stack_a->value = input[i];
+		stack_a = stack_a->next;
+		i++;
+	}
+	free(input);
+	return (0);
 }
-
-

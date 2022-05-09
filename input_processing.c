@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:01:27 by sydauria          #+#    #+#             */
-/*   Updated: 2022/04/17 07:53:25 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/04/28 19:18:10 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static int ft_multi_atoi(int *input, char *argv, int sign)
 	size_t	nb;
 	int		count;
 	int		k;
-	
+
 	count = 0;
 	k = 0;
 	while (argv[k])
 	{
 		nb = 0;
-		while (argv[k] == ' ' || (argv[k] >= 9 && argv[k] <= 13) 
+		while (argv[k] == ' ' || (argv[k] >= 9 && argv[k] <= 13)
 				|| argv[k] == '+' || argv[k] == '-')
 		{
 			if (argv[k] == '-')
@@ -51,7 +51,7 @@ int	fill_input(int *input, char **argv)
 	int	i;
 	int	k;
 	int	retrn;
-	
+
 	i = 0;
 	k = 1;
 	retrn = 0;
@@ -59,10 +59,11 @@ int	fill_input(int *input, char **argv)
 	{
 		retrn += ft_multi_atoi(input + i, *(argv + k), 1);
 		if (retrn == -1)
-			return -1;
+			return (-1);
 		k++;
 		i+= retrn;
 		retrn = 0;
 	}
 	return (0);
 }
+
