@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 07:53:58 by sydauria          #+#    #+#             */
-/*   Updated: 2022/04/18 22:30:53 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/05/11 12:10:43 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ static t_sub	*new_first_sub_fork(t_storage *posibilities, t_stacks *input, t_sub
 	return (new_fork);
 }
 
-dup_lis_and_free()
+//dup_lis_and_free()
 
 
 

@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:01:27 by sydauria          #+#    #+#             */
-/*   Updated: 2022/04/28 19:18:10 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/05/11 09:00:35 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int ft_multi_atoi(int *input, char *argv, int sign)
 			k++;
 		}
 		if ((long long)nb * sign < INT_MIN || (long long)nb * sign > INT_MAX)
-			return (-1);
+			return (0);
 		input[count] = sign * nb;
 		sign = 1;
 		count++;
@@ -58,12 +58,12 @@ int	fill_input(int *input, char **argv)
 	while (argv[k])
 	{
 		retrn += ft_multi_atoi(input + i, *(argv + k), 1);
-		if (retrn == -1)
-			return (-1);
+		if (retrn == 0)
+			return (0);
 		k++;
 		i+= retrn;
 		retrn = 0;
 	}
-	return (0);
+	return (1);
 }
 

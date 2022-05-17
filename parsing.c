@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:01:34 by sydauria          #+#    #+#             */
-/*   Updated: 2022/04/27 22:56:09 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/05/11 06:46:35 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	arg_check_and_count(char *input)
 		}
 		if (input[i])
 			if(!(input[i] == ' ' || (input[i] >= 9 && input[i] <= 13)))
-				return(-1);
+				return(0);
 	}
 	return (count);
 }
@@ -47,15 +47,15 @@ int	parsing(char **input)
 
 	k = 1;
 	count = 0;
-	if (!**input)
-		return (-1);
+	if (!input)
+		return (0);
 	while (input[k])
 	{
 		retrn = arg_check_and_count(input[k]);
-		if (retrn < 0)
+		if (retrn == 0)
 		{
 			write(2, "Error\n", 6);
-			return (-1);
+			return (0);
 		}
 		k++;
 		count += retrn;

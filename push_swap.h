@@ -6,13 +6,13 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:46 by sydauria          #+#    #+#             */
-/*   Updated: 2022/04/24 19:15:03 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/05/11 16:48:38 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
+/*
 typedef struct s_longest_increasing_subsequence
 {
 
@@ -38,12 +38,12 @@ typedef struct s_storage
 	int 		lis_size;
 	t_storage 	*next;
 }t_storage;
-
+*/
 typedef struct s_stacks
 {
-	t_stacks 	*prev;
-	int 		value;
-	t_stacks	*next;
+	struct s_stacks	*prev;
+	int 			value;
+	struct s_stacks	*next;
 } t_stacks;
 
 typedef struct s_save
@@ -52,5 +52,6 @@ typedef struct s_save
 	int			size;
 	t_stacks	*last;
 } t_save;
+
 
 # endif

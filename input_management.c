@@ -6,9 +6,12 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:58:58 by sydauria          #+#    #+#             */
-/*   Updated: 2022/04/27 22:56:21 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/05/11 10:32:03 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
+#include "push_swap.h"
 
 int	ft_argv_count(const char *str)
 {
@@ -31,28 +34,26 @@ int	ft_argv_count(const char *str)
 	}
 	return (argv_count);
 }
+#include <stdio.h>
 
-int	check_duplicate(int *input)
+int	check_duplicate(int *input, int size)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (input[i + 1])
+	printf("size = %d\n\n", size);
+	while (i < size)
 	{
 		j = i + 1;
-		while (input[j])
+		while (j < size)
 		{
+			printf("i = %d\nj = %d\n\n\n", i, j);
 			if (input[i] == input[j])
-				return (-1);
+				return (0);
 			j++;
 		}
 		i++;
 	}
-	return (0);
-}
-
-int main(int argc, char *argv[])
-{
-
+	return (1);
 }
