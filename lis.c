@@ -6,132 +6,160 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 07:53:58 by sydauria          #+#    #+#             */
-/*   Updated: 2022/05/11 12:10:43 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/05/26 18:57:58 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int get_lis(int *input, t_sub *sub, t_lis *repo)
+t_section get_lis()
+{
+	insert_in_lis; // dup t_stack en t_section si lis
+	{
+		if (max < next)
+		{	
+			best_section() //trouve la
+			{
+				insert_in_lis()
+				next_commun(void *, t_section *);
+				{
+					if (max < next)
+						best_section();
+				}
+				best_way();
+			}
+		}
+	}
+}
+
+t_section	*insert_in_lis(t_stack *stack_a, t_section *lis)
 {
 	int	i;
-	int	tmp_max;
+	int	actual_max;
 
 	i = 0;
-	repo = malloc(sizeof(t_lis));
-	while (input[i])
+	actual_max = stack_a->value;
+	while (i < stack_a->size)
 	{
-		if (input[] > tmp_max)
-			add_to_list();
-		if (input[] < tmp_max && input[] > first)
+		actual_max = stack_a->value;
+		copy_node(stack_a, lis->last);
+		stack_a = stack_a->next;
+		if (actual_max > stack_a->value)
 		{
-			new_list = create_new_list();
-			get_lis(new_list);
+			insert_in_lis(last_commun(stack_a), lis);
 		}
-		if (input[] < tmp_max && input[] > first)
-		{
-			new_list = create_new_list();
-			get_lis(new_list);
-		}
-
 	}
 }
 
-t_storage *count_subsequences(t_stacks *input, t_storage *posibilities)
+t_section	*best_section(t_stack *stack_a, t_section *actual_lis)
 {
-	t_sub  *lis;
+	next_commun(stack_a, actual_lis);
 	
-	posibilities->sequence = init_first_sequence(lis);
-	if (!posibilities->sequence)
-		return (NULL);
-	while (input)
+}
+
+t_section *next_commun(t_stack *stack_a, t_section *actual_lis)
+{
+	t_section	*new_section;
+	t_section	*last_commun;
+	int			actual_max;
+	
+	actual_max = stack_a->value;
+	
+	last_commun = actual_lis;
+	while (last_commun-> )
+	while (stack_a->value <= actual_max)
 	{
-		if (lis->value < input->value)
-		{
-			lis->next = new_max_value(posibilities, input, lis);
-			lis = lis->next;
-		}
-		else if (lis->value > input->value && 
-					lis->min < input->value)
-		{
-			posibilities->next = new_max_sub_fork(posibilities, input, lis);
-		}
-		else if (lis->value > input->value && 
-					lis->min > input->value)
-		{
-			posibilities->next = new_first_sub_fork(posibilities, input, lis);
-		}
-		input = input->next;
+		insert_in_list(stack_a->next, last_commun);
 	}
-	posibilities = posibilities->next;
-	return (posibilities);
+	
+	
 }
 
-static t_sub	*new_max_value(t_storage *posibilities, t_stacks *input, t_sub *subsequence)
+t_section	*get_lis(t_stack *stack_a)
 {
-	t_sub	*new_max;
+	int			i;
+	int			actual_max;
+	t_section	*lis;
+	t_section	*last_commun;
 
-	new_max = malloc(sizeof(t_sub));
-	if (!new_max)
-		return (NULL);
-	subsequence->next = new_max;
-	new_max->min = subsequence->min;
-	new_max->value = input->value;
-	new_max->size = (subsequence->size) + 1;
-	new_max->first_of_sub = subsequence->first_of_sub;
-	new_max->root = subsequence;
-	new_max->next = NULL;
-	posibilities->lis_size += 1;
-	return (new_max);
+	i = stack_a->score;
+	while (i < stack_a->size)
+	{
+		actual_max = stack_a->value;
+		copy_node(stack_a, lis->last);
+		stack_a = stack_a->next;
+		if (actual_max > stack_a->value)
+		{
+			last_commun = get_last_commun(stack_a, stack_a->value);
+			create_new_section(stack_a, last_commun);
+			new_section->next = duplicate_node(stack_a);
+			
+		}
+	}
 }
 
-static t_sub	*new_sub_fork(t_storage *posibilities, t_stacks *input, t_sub *subsequence)
+create_new_section(t_stack *stack_a, t_section *last_commun, t_section *next_commun, t_section *main_section)
 {
-	t_storage	*fork_index;
-	t_sub		*new_fork;
+	int			i;
+	t_section	*new_section;
+	t_section	*;
 
-	fork_index = malloc(sizeof(t_storage));
-	new_fork = malloc(sizeof(t_sub));
-	if (!fork_index || !new_fork)
-		return (NULL);
-	posibilities->next = fork_index;
-	fork_index->sequence = new_fork;
-	fork_index->next = NULL;
-	fork_index->lis_size = subsequence->size;
-	new_fork->min = input->value;
-	new_fork->value = input->value;
-	new_fork->size = subsequence->size;
-	new_fork->first_of_sub = new_fork;
-	new_fork->root = subsequence;
-	new_fork->next->next = NULL;
-	posibilities->lis_size = new_fork->size;
-	return (new_fork);
+	i = last_commun->score;
+	new_section = duplicate_node(last_commun);
+	potential_free = new_section;
+	while (new_section != next_commun)
+	{
+		stack_a = stack_a->next;
+		new_section->next = duplicate_node(stack_a);
+		new_section = new_section->next;
+	}
+	if (new_section->score <= next_commun->score)
+	{
+		free_list(potential_free);
+	}
+	if (new_section->score > next_commun->score)
+	{
+		last_commun->prev->next = 
+		free_list(last_commun);
+	}
+	free ();
 }
 
-static t_sub	*new_first_sub_fork(t_storage *posibilities, t_stacks *input, t_sub *subsequence)
+t_stack	*get_last_commun(t_stack *stack_a, int new_start)
 {
-	t_storage	*fork_index;
-	t_sub		*new_fork;
-
-	fork_index = malloc(sizeof(t_storage));
-	new_fork = malloc(sizeof(t_sub));
-	if (!fork_index || !new_fork)
-		return (NULL);
-	posibilities->next = fork_index;
-	fork_index->sequence = new_fork;
-	fork_index->next = NULL;
-	fork_index->lis_size = 1;
-	new_fork->min = input->value;
-	new_fork->value = input->value;
-	new_fork->size = 1;
-	new_fork->first_of_sub = new_fork; 
-	new_fork->root = NULL;
-	new_fork->next = NULL;
-	posibilities->lis_size = new_fork->size;
-	return (new_fork);
+	while (stack_a->value > new_start)
+		stack_a = stack_a->prev;
+	return (duplicate_node(stack_a));
 }
 
-//dup_lis_and_free()
+t_section	*get_lis(t_stack *stack_a, t_section *lis)
+{
+	t_stack		*limit;
+	t_section	*actual_section;
+	t_section	*last_commun;
+	t_section	*next_commun;
 
+	actual_section = duplicate_node(stack_a); //free stack_a dans la fonction si erreur et exit;
+	stack_a = stack_a->next;
+	while (stack_a != limit)
+	{
+		if (actual_section->value > stack_a->value)
+		{
+			stack_a = best_way(actual_section, last_commun, next_commun);
+		}
+		else
+		{
+			actual_section->next = duplicate_node(stack_a);
+			stack_a = stack_a->next;
+		}
+	}
+	return(actual_section->first);
+}
 
-
+t_stack	*best_way(t_section *actual_section, t_section *last_commun, t_section *next_commun);
+{
+	t_section	*potential;
+	
+	potential = get_lis(stack_a);
+	if (potential->size > )
+}
