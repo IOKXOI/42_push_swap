@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 07:53:58 by sydauria          #+#    #+#             */
-/*   Updated: 2022/05/26 18:57:58 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/05/31 21:38:05 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,3 +163,81 @@ t_stack	*best_way(t_section *actual_section, t_section *last_commun, t_section *
 	potential = get_lis(stack_a);
 	if (potential->size > )
 }
+//////////////////////////////////////////////////////////////////////////////
+
+while (stack != limit)
+{
+	if (stack->value > lis->max)
+		lis->next = duplicate_node(stack, lis);
+	else
+		best_way(stack, lis);
+	
+		
+}
+
+///////
+t_section *duplicate_node(t_stack *stack, t_section *last)
+{
+	t_section *new_node;
+	
+	new_node = malloc(sizeof(t_section));
+	if (!new_node)
+	{
+		free_list(stack->first);
+		free_list(last->first);
+		exit(0);
+	}
+	new_node->first = last->first;
+	new_node->prev = last;
+	new_node->score = last->score + 1;
+	new_node->value = stack->value;
+	new_node->max = stack->value;
+	new_node->last = new_node;
+	last->next = new_node;
+}
+
+t_section *best_way(t_stack *stack, t_section *last)
+{
+	
+	last_commun(stack, last);
+	next_commun(stack, last);
+	
+	
+}
+
+
+t_stack *last_commun(t_stack *stack, t_section *lis)
+{
+	while (stack->value < lis->value)
+		lis = lis->prev;
+	while (stack->value != lis->value)
+		stack = stack->prev;
+	return (stack);
+}
+
+t_stack *next_commun(t_stack *stack, t_section *lis)
+{
+	int	optional;
+	int	score;
+
+	optional = stack->prev->value;
+	while (optional > stack->value)
+		stack = stack->next;
+	return (stack);
+}
+
+best_score (t_stack *last_commun, t_stack *next_commun, int optional_max)
+{
+	int	score;
+	
+	score = 0;
+	while (last_commun->value != next_commun->value)
+	{
+		last_commun = last_commun->next;
+		if (optional_max < last_commun)
+		{
+			optional_max = last_commun->value;
+			score ++;
+		}
+	}
+} 

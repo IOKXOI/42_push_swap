@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:46 by sydauria          #+#    #+#             */
-/*   Updated: 2022/05/21 19:30:11 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/05/31 17:29:54 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_section
 	struct s_section	*prev;
 	int					score;
 	int					value;
+	int					max;
 	struct s_section	*next;
 	struct s_section	*last;
 } t_section;
