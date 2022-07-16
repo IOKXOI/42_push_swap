@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:46 by sydauria          #+#    #+#             */
-/*   Updated: 2022/05/31 17:29:54 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/06/06 14:15:23 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,27 @@ typedef struct s_stack
 	int				value;
 	int				score;
 	int				size;
+	int				alternative;
 	struct s_stack	*next;
 } t_stack;
+
+typedef struct s_lis
+{
+	struct s_lis	*begin;
+	struct s_lis	*prev;
+	int				score;
+	int				value;
+	struct s_lis	*next;
+} t_lis;
 
 typedef struct s_save
 {
 	t_stack		*first;
 	int			size;
 	t_stack		*last;
+	t_lis		*lis;
 } t_save;
 
-typedef struct s_section
-{
-	struct s_section	*first;
-	struct s_section	*prev;
-	int					score;
-	int					value;
-	int					max;
-	struct s_section	*next;
-	struct s_section	*last;
-} t_section;
+
 
 # endif

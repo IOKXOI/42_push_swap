@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:01:27 by sydauria          #+#    #+#             */
-/*   Updated: 2022/05/11 09:00:35 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/06/06 02:21:05 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,3 @@ int	fill_input(int *input, char **argv)
 	}
 	return (1);
 }
-

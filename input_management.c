@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:58:58 by sydauria          #+#    #+#             */
-/*   Updated: 2022/05/11 10:32:03 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/06/06 13:54:14 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	ft_argv_count(const char *str)
 	}
 	return (argv_count);
 }
-#include <stdio.h>
 
 int	check_duplicate(int *input, int size)
 {
@@ -42,13 +41,11 @@ int	check_duplicate(int *input, int size)
 	int	j;
 
 	i = 0;
-	printf("size = %d\n\n", size);
-	while (i < size)
+	while (i < size) // check 0 1 2 3 0
 	{
 		j = i + 1;
 		while (j < size)
 		{
-			printf("i = %d\nj = %d\n\n\n", i, j);
 			if (input[i] == input[j])
 				return (0);
 			j++;

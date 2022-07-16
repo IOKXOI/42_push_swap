@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 20:08:00 by sydauria          #+#    #+#             */
-/*   Updated: 2022/05/11 12:24:40 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/06/06 14:53:28 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 static int	create_nodes(t_save *stack_a, t_save *stack_b, int input)
 {
-	stack_a->first = malloc(sizeof(t_stacks));
-	stack_b->first = malloc(sizeof(t_stacks));
+	stack_a->first = malloc(sizeof(t_stack));
+	stack_b->first = malloc(sizeof(t_stack));
 	if (!stack_a->first || !stack_a->first)
 		return (0);
 	stack_a->last = stack_a->first;
@@ -28,13 +28,14 @@ static int	create_nodes(t_save *stack_a, t_save *stack_b, int input)
 
 static int	new_nodes(t_save *stack_a, t_save *stack_b, int input)
 {
-	stack_a->last->next = malloc(sizeof(t_stacks));
-	stack_b->last->next = malloc(sizeof(t_stacks));
+	stack_a->last->next = malloc(sizeof(t_stack));
+	stack_b->last->next = malloc(sizeof(t_stack));
 	if (!stack_a->first || !stack_a->first)
 		return (0);
 	stack_a->last->next->prev = stack_a->last;
 	stack_a->last = stack_a->last->next;
 	stack_a->last->value = input;
+	stack_a->last->alternative = 0;
 	stack_a->last->next = stack_a->first;
 	stack_b->last->next->prev = stack_b->last;
 	stack_b->last = stack_b->last->next;
@@ -60,16 +61,29 @@ int init_stacks(int *input, t_save *stack_a, t_save *stack_b)
 	return (1);
 }
 
+void	free_lis(t_lis *list)
+{
+	t_lis	*tmp;
+
+	tmp = list->next;
+	while (tmp)
+	{
+		free(list);
+		list = tmp;
+		tmp = list->next;
+	}
+}
+
 void	free_node(t_save *stack)
 {
-	t_stacks *tmp;
+	t_stack *tmp;
 	
 	tmp = stack->first;
 	stack->first = stack->first->next;
 	free(tmp);
 }
 
-int	free_stacks(t_save *stack_a, t_save *stack_b)
+int	free_stack(t_save *stack_a, t_save *stack_b)
 {
 	int i;
 	i = 0;
