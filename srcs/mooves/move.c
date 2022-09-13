@@ -92,21 +92,36 @@ void	pb(t_repo *repo)
 
 	stack_a = repo->stack_a_first;
 	stack_b = repo->stack_b_first;
-	repo->stack_a_first = stack_a->next;
-	stack_a->prev->next = stack_a->next;
-	stack_a->next->prev = stack_a->prev;
+	if (stack_a = stack_a->next)
+		repo_stack_a_first = NULL;	
+	else
+	{
+		repo->stack_a_first = stack_a->next;
+		stack_a->prev->next = stack_a->next;
+		stack_a->next->prev = stack_a->prev;
+	}
 	if (!stack_b)
+	{
 		init_first_node_in_stack(repo->stack_b_first);
-	if (repo->stack_b_last != repo->stack_b_first)
+		return;
+	}
+	if (stack_b->next == NULL)
+	{
+		stack_a->next = stack_b;
+		stack_a->prev = stack_b;
+		stack_b->next = stack_a;		
+		stack_b->prev = stack_a;
+		repo->stack_b_first = stack_a;
+		repo->stack_b_last = stack_b;
+		return;
+	}
+	else
 	{
 		repo->stack_b_first = stack_a;
 		repo->stack_b_first->next = stack_b;
 		repo->stack_b_first->prev = repo->stack_b_last;
 		repo->stack_b_last->next = repo->stack_b_first;
 	}
-	else
-		stack_b = stack_a;
-	repo->stack_b_first = stack_a;
 	write(1, "pb\n", 3);
 }
 
