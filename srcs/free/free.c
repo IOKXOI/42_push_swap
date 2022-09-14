@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 22:10:42 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/10 05:11:44 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:46:02 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 void	free_stack_a(t_repo *repo)
 {
-	t_stack	*save;
 	int	i;
+	t_stack	*save;
+	t_stack	*stack_a;
 
 	i = 0;
-
+	stack_a = repo->stack_a_first;
 	while (i < repo->size)
 	{
-		save = repo->stack_a->next;
-		free(repo->stack_a);
-		repo->stack_a = save;
+		save = stack_a->next;
+		free(stack_a);
+		stack_a = save;
 		i++;
 	}
 }

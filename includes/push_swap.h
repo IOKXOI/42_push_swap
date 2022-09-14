@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:46 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/12 13:57:06 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/14 14:05:47 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	free_stack_a(t_repo *repo);
 
 // LIST ///////////////////////////////////////////////////////////////////////
 void	get_value_in_node(int node_value, int index, t_repo *repo);
+void	init_first_node_in_stack(t_repo *repo);
+int		is_already_sorted_list(t_repo *repo);
 ///////////////////////////////////////////////////////////////////////////////
 
 // RADIX //////////////////////////////////////////////////////////////////////
@@ -65,17 +67,19 @@ void	push_all_in_stack_a(t_repo *repo);
 ///////////////////////////////////////////////////////////////////////////////
 
 // MOOVES /////////////////////////////////////////////////////////////////////
-void	sa(t_stack *stack_a, t_repo *repo);
-void	sb(t_stack *stack_b, t_repo *repo);
-void	ss(t_stack *stack_a, t_stack *stack_b, t_repo *repo);
-void	pa(t_stack *stack_a, t_stack *stack_b, t_repo *repo);
-void	pb(t_stack *stack_a, t_stack *stack_b, t_repo *repo);
+void	connect_node(t_stack *a, t_stack *b, t_stack *c, t_stack *d);
+void	sa(t_repo *repo);
+//void	sb(t_stack *stack_b, t_repo *repo);
+//void	ss(t_stack *stack_a, t_stack *stack_b, t_repo *repo);
+void	pa(t_repo *repo);
+void	pb(t_repo *repo);
 void	ra(t_repo *repo);
-void	rb(t_repo *repo);
-void	rr(t_repo *repo);
-void	rra(t_repo *repo);
-void	rrb(t_repo *repo);
-void	rrr(t_repo *repo);
+//void	rb(t_repo *repo);
+//void	rr(t_repo *repo);
+//void	rra(t_repo *repo);
+//void	rrb(t_repo *repo);
+//void	rrr(t_repo *repo);
 ///////////////////////////////////////////////////////////////////////////////
 
+void print_stack(t_repo *repo);
 # endif

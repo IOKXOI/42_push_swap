@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:42:00 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/12 15:09:04 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/14 13:08:13 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	sort_by_index(int *input, t_repo *repo)
 		index++;
 		i = 0;
 	}
+	free(input);
 }
 
 void	push_all_in_stack_a(t_repo *repo)
@@ -56,9 +57,13 @@ void	push_all_in_stack_a(t_repo *repo)
 	t_stack	*stack_b;
 	
 	stack_b = repo->stack_b_first;
-	while(stack_b != repo->stack_b_last)
-		pa(repo->stack_a_first, stack_b, repo);
-	pa(repo->stack_a_first, stack_b, repo);
+	repo->stack_b_last->next = NULL;
+	while(stack_b)
+	{
+		//print_stack(repo);
+		pa(repo);
+		stack_b = stack_b->next;
+	}
 }
 
 void	radix(t_repo *repo)
@@ -70,18 +75,23 @@ void	radix(t_repo *repo)
 	i = 0;
 	x = 0;
 	stack_a = repo->stack_a_first;
-	while (i < repo->size || x < 32)
+	while (!is_already_sorted_list(repo) && i < 10)
 	{
-		if ((stack_a->radix_value >> x) == 0)
+		if ((stack_a->radix_value >> x & 1) == 0)
 			ra(repo);
 		else
-			pb(stack_a, repo->stack_b, repo);
+		{
+			pb(repo);
+			printf("PUSH in b\n");
+		}
 		if (i == repo->size)
 		{
 			push_all_in_stack_a(repo);
 			i = 0;
+			printf("PUSH in a\n");
 			x++;
 		}
+		i++;
 		stack_a = repo->stack_a_first;
 	}
 }

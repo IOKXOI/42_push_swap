@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 20:46:59 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/12 15:10:42 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:35:54 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static void	init_stack(t_repo *repo)
 {
-	repo->stack_a = malloc(sizeof(t_stack));
-	if (!repo->stack_a)
+	repo->stack_a_first = malloc(sizeof(t_stack));
+	if (!repo->stack_a_first)
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
-	repo->stack_a_first = repo->stack_a;
-	repo->stack_a->next = NULL;
+	repo->stack_a_first->next = NULL;
+	repo->stack_a_last = repo->stack_a_first;
 }
 
 static t_stack	*new_node(t_repo *repo)
@@ -35,8 +35,10 @@ static t_stack	*new_node(t_repo *repo)
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
-	new_node->prev = repo->stack_a;
+	new_node->prev = repo->stack_a_last;
 	new_node->next = repo->stack_a_first;
+	repo->stack_a_first->prev = new_node;
+	repo->stack_a_last->next = new_node;
 	repo->stack_a_last = new_node;
 	return (new_node);
 }
@@ -44,20 +46,19 @@ static t_stack	*new_node(t_repo *repo)
 void	init_chain_list_and_fill_it(int *input, t_repo *repo)
 {
 	int	i;
+	t_stack	*stack_a;
 
 	i = 0;
 	init_stack(repo);
-	repo->stack_a->value = input[i];
+	stack_a = repo->stack_a_first;
+	stack_a->value = input[i];
 	i++;
 	while (i < repo->size)
 	{
-		repo->stack_a->next = new_node(repo);
-		repo->stack_a = repo->stack_a->next;
-		repo->stack_a->value = input[i];
+		stack_a->next = new_node(repo);
+		stack_a = stack_a->next;
+		stack_a->value = input[i];
 		i++;
 	}
-	repo->stack_a = repo->stack_a_first; 
-	repo->stack_a_first->prev = repo->stack_a_last;
-	repo->stack_a_last->next = repo->stack_a_first;
-	repo->stack_b = NULL;
+	repo->stack_b_first = NULL;
 }
