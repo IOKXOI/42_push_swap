@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:46 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/14 14:05:47 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/15 02:02:51 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	free_stack_a(t_repo *repo);
 
 // LIST ///////////////////////////////////////////////////////////////////////
 void	get_value_in_node(int node_value, int index, t_repo *repo);
-void	init_first_node_in_stack(t_repo *repo);
+void	init_first_node_in_stack_a(t_repo *repo);
+void	init_first_node_in_stack_b(t_repo *repo);
 int		is_already_sorted_list(t_repo *repo);
 ///////////////////////////////////////////////////////////////////////////////
 

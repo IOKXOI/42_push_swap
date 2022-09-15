@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:42 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/14 13:46:23 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/15 02:15:29 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,30 @@
 void print_stack(t_repo *repo)
 {
 	int	i = 1;
+	int ok = 1;
 
 	t_stack *stack_a = repo->stack_a_first;
 	printf("========================\n");
-	while (i <= repo->size)
+	while (ok)
 	{
 		if (stack_a == repo->stack_a_first)
 		{
-			printf("first node value = %d", stack_a->value);
-			printf(" radix value = %d\n\n", stack_a->radix_value);
+			//printf("first node value = %d", stack_a->value);
+			printf("%d\n\n", stack_a->radix_value);
 			//printf("first = %p\nlast = %p\n actu = %p\n", )
 		}
 		else if (stack_a == repo->stack_a_last)
 		{
-			printf("last node value = %d", stack_a->value);
-			printf(" radix value = %d\n\n", stack_a->radix_value);
+			//printf("last node value = %d", stack_a->value);
+			printf("%d\n\n", stack_a->radix_value);
 		}
 		else
 		{
-			printf("Node numero %d value = %d", i, stack_a->value);
-			printf(" radix value = %d\n\n", stack_a->radix_value);
+			//printf("Node numero %d value = %d", i, stack_a->value);
+			printf("%d\n\n", stack_a->radix_value);
 		}
+		if (stack_a == repo->stack_a_last)
+			ok = 0;
 		stack_a = stack_a->next;
 		i++;
 	}
@@ -59,13 +62,12 @@ int	main(int argc, char *argv[])
 	is_already_sorted(input, &repo);
 	init_chain_list_and_fill_it(input, &repo);
 	sort_by_index(input, &repo);
-	//radix(&repo);
+	radix(&repo);
 	//repo.stack_a = repo.stack_a_first;
-	sa(&repo);
+	//sa(&repo);
 	//
 	print_stack(&repo);
 	//
 	//free(input);
 	free_stack_a(&repo);
 }
-

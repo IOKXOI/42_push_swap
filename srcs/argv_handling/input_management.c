@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:58:58 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/14 13:49:57 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/15 02:22:09 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,30 +59,28 @@ void	is_already_sorted(int *input, t_repo *repo)
 int	is_already_sorted_list(t_repo *repo)
 {
 	int		check;
+	int		loop;
 	t_stack	*stack_a;
 
+	loop = 1;
 	stack_a = repo->stack_a_first;
 	check = stack_a->value;
 	stack_a = stack_a->next;
-	while (stack_a != repo->stack_a_first)
+	while (loop)
 	{
-		int i = 0;
-		//printf("check i = %d < n+ 1\n", i);
-		i++;
-		//print_stack(repo);
 		if (check < stack_a->value)
 		{
-			//printf("%d < %d ", check, stack_a->value);
-			//printf("ok \n");
+			printf("check %d inferieur a %d\n", check, stack_a->value);
 			check = stack_a->value;
 			stack_a = stack_a->next;
 		}
 		if (check > stack_a->value)
 		{
-			//printf("%d > %d ", check, stack_a->value);
-			//printf("break\n");
+			printf("check %d supp a %d\n", check, stack_a->value);
 			return (0);
 		}
+		if (stack_a == repo->stack_a_last)
+			loop = 0;
 	}
 	return (1);
 }

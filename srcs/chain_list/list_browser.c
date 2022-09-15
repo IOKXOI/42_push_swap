@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:51:05 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/13 15:38:58 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/15 02:10:40 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,23 @@ void	get_value_in_node(int node_value, int index, t_repo *repo)
 	stack->radix_value = index;
 }
 
-void	init_first_node_in_stack(t_repo *repo)
+void	init_first_node_in_stack_a(t_repo *repo)
+{
+	repo->stack_a_first = repo->stack_b_first;
+	repo->stack_a_last = repo->stack_b_first;
+	repo->stack_b_first = repo->stack_b_first->next;
+	repo->stack_b_first->prev = repo->stack_b_last;
+	repo->stack_b_last->next = repo->stack_b_first;
+	repo->stack_a_first->next = NULL;
+	repo->stack_a_first->prev = NULL;
+}
+
+void	init_first_node_in_stack_b(t_repo *repo)
 {
 	repo->stack_b_first = repo->stack_a_first;
 	repo->stack_b_last = repo->stack_a_first;
 	repo->stack_a_first = repo->stack_a_first->next;
-	repo->stack_a_first-> prev = repo->stack_a_last;
+	repo->stack_a_first->prev = repo->stack_a_last;
 	repo->stack_a_last->next = repo->stack_a_first;
 	repo->stack_b_first->next = NULL;
 	repo->stack_b_first->prev = NULL;
