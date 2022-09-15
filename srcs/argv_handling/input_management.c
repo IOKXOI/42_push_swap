@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:58:58 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/15 02:22:09 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/15 06:07:46 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,22 @@ int	is_already_sorted_list(t_repo *repo)
 	loop = 1;
 	stack_a = repo->stack_a_first;
 	check = stack_a->value;
-	stack_a = stack_a->next;
+	if (stack_a->next)
+		stack_a = stack_a->next;
 	while (loop)
 	{
 		if (check < stack_a->value)
 		{
-			printf("check %d inferieur a %d\n", check, stack_a->value);
+			//printf("check %d inferieur a %d\n", check, stack_a->value);
 			check = stack_a->value;
 			stack_a = stack_a->next;
 		}
-		if (check > stack_a->value)
+		else if (check > stack_a->value)
 		{
-			printf("check %d supp a %d\n", check, stack_a->value);
+			//printf("check %d supp a %d\n", check, stack_a->value);
 			return (0);
 		}
-		if (stack_a == repo->stack_a_last)
+		if (stack_a == repo->stack_a_last || !stack_a)
 			loop = 0;
 	}
 	return (1);

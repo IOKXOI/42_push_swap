@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:42:00 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/15 00:12:51 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/15 06:51:12 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ void	sort_by_index(int *input, t_repo *repo)
 		index++;
 		i = 0;
 	}
+	i = 0;
+	while (i < repo->size)
+	{
+		//printf("%d\n", input[i]);
+		i++;
+	}
 	free(input);
 }
 
@@ -70,33 +76,35 @@ void	print_stacks(t_repo *repo)
 	t_stack *stack_a = repo->stack_a_first;
 	t_stack *stack_b = repo->stack_b_first;
 	
-	int a = 20;
+	int a = 1;
 	int b = 1;
 	
-	while (a)
+	while (a || b)
 	{
-		if (stack_a && a)
+		if (a)
 		{
-			if (stack_a == repo->stack_a_last)
-				a--;
-			printf("Value = %d radix_value = %d |", stack_a->value, stack_a->radix_value);
+			if (stack_a && stack_a == repo->stack_a_last)
+				a = 0;
+			//if (stack_a)
+			//{
+			printf("radix_value = %d |",stack_a->radix_value);
 			stack_a = stack_a->next;
+			//}
 		}
 		else
-			printf("                            |");
-		if (stack_b && b)
+			printf("                 |");
+		if (b)
 		{
-			if (stack_b == repo->stack_b_last)
-				b--;
-			printf("Value = %d radix_value = %d |\n", stack_b->value, stack_b->radix_value);
-			stack_b = stack_b->next;
+			if (stack_b && stack_b == repo->stack_b_last)
+				b = 0;
+			if (stack_b)
+			{printf("radix_value = %d |\n", stack_b->radix_value);
+			stack_b = stack_b->next;}
 		}
 		else
-			printf("                            |\n");
-		a--;
+			printf("                 |\n");
 	}
-	exit(1);
-	printf("==================");
+	printf("==================\n");
 }
 
 void	radix(t_repo *repo)
@@ -119,10 +127,11 @@ void	radix(t_repo *repo)
 		{
 			push_all_in_stack_a(repo);
 			i = 0;
-			printf("PUSH in a\n");
+		//	printf("PUSH in a\n");
 			x++;
 		}
 		i++;
 		stack_a = repo->stack_a_first;
+		//print_stacks(repo);
 	}
 }

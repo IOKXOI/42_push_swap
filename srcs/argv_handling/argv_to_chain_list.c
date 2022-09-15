@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 20:46:59 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/14 23:07:34 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/15 06:21:41 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ void	init_chain_list_and_fill_it(int *input, t_repo *repo)
 		i++;
 	}
 	repo->stack_a_last = stack_a;
-	repo->stack_a_last->next = NULL;
+	repo->stack_a_last->next = repo->stack_a_first;
 	repo->stack_b_first = NULL;
 }

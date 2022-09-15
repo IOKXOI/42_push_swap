@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:42 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/15 02:15:29 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/15 06:50:53 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(int argc, char *argv[])
 	//repo.stack_a = repo.stack_a_first;
 	//sa(&repo);
 	//
-	print_stack(&repo);
+	//print_stack(&repo);
 	//
 	//free(input);
 	free_stack_a(&repo);

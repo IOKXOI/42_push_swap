@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 12:19:29 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/15 02:07:13 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/15 05:03:17 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	pa(t_repo *repo)
 	if (stack_b == stack_b->next)
 	{
 		repo->stack_b_first = NULL;
-		repo->stack_b_last = NULL;
+		//repo->stack_b_last = NULL;
 	}
 	else
 	{
@@ -137,7 +137,7 @@ void	pb(t_repo *repo)
 	if (stack_a == stack_a->next)
 	{
 		repo->stack_a_first = NULL;
-		repo->stack_a_last = NULL;
+		//repo->stack_a_last = NULL;
 	}
 	else
 	{
