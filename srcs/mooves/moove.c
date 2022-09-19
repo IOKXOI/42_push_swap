@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   moove.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 12:19:29 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/19 18:12:35 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/19 21:17:46 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	connect_node(t_stack *a, t_stack *b, t_stack *c, t_stack *d)
-{
-	if (a)
-		a->next = b;
-	b->prev = a;
-	b->next = c;
-	c->prev = b;
-	c->next = d;
-	if (d)
-		d->prev = c;
-}
 
 void	sa(t_repo *repo)
 {
@@ -55,7 +43,6 @@ void	sb(t_repo *repo)
 	stack_b->prev = repo->stack_b_first;
 	stack_b->next->prev = stack_b;
 	repo->stack_b_first->next = stack_b;
-	//if (repo->stack_b_last->next == repo->stack_b_last->next)
 	repo->stack_b_last = repo->stack_b_first->prev;
 	write(1, "sb\n", 3);
 }
@@ -116,46 +103,4 @@ void	pb(t_repo *repo)
 	repo->stack_b_first->prev = repo->stack_b_last;
 	repo->stack_b_last->next = repo->stack_b_first;
 	write(1, "pb\n", 3);
-}
-
-void	ra(t_repo *repo)
-{
-	repo->stack_a_last = repo->stack_a_first;
-	repo->stack_a_first = repo->stack_a_first->next;
-	write(1, "ra\n", 3);
-}
-
-void	rra(t_repo *repo)
-{
-	repo->stack_a_first = repo->stack_a_last;
-	repo->stack_a_last = repo->stack_a_last->prev;
-	write(1, "rra\n", 4);
-}
-
-void	stack_two_three(t_repo *repo)
-{
-	t_stack	*a;
-	t_stack	*b;
-	t_stack	*c;
-
-	a = repo->stack_a_first;
-	b = a->next;
-	if (repo->size == 2)
-	{
-		sa(repo);
-		//free input?
-		free_stack_a(repo);
-		exit(EXIT_SUCCESS);
-	}
-	c = b->next;
-	if (a->radix_value < b->radix_value && b->radix_value > c->radix_value && c->radix_value > a->radix_value)
-		acb(repo);
-	else if (a->radix_value < b->radix_value && b->radix_value > c->radix_value && c->radix_value < a->radix_value)
-		bca(repo);
-	else if (a->radix_value > b->radix_value && b->radix_value < c->radix_value && c->radix_value > a->radix_value)
-		bac(repo);
-	else if (a->radix_value > b->radix_value && b->radix_value < c->radix_value && c->radix_value < a->radix_value)
-		cab(repo);
-	else if (a->radix_value > b->radix_value && b->radix_value > c->radix_value && c->radix_value < a->radix_value)
-		cba(repo);
 }

@@ -6,48 +6,11 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:42 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/19 18:22:33 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/19 23:29:30 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-///////////////DEBUG//////////////////////////////////
-/*
-void	print_stack(t_repo *repo)
-{
-	int	i = 1;
-	int	ok = 1;
-
-	t_stack *stack_a = repo->stack_a_first;
-	printf("========================\n");
-	while (ok)
-	{
-		if (stack_a == repo->stack_a_first)
-		{
-			//printf("first node value = %d", stack_a->value);
-			printf("%d\n\n", stack_a->radix_value);
-			//printf("first = %p\nlast = %p\n actu = %p\n", )
-		}
-		else if (stack_a == repo->stack_a_last)
-		{
-			//printf("last node value = %d", stack_a->value);
-			printf("%d\n\n", stack_a->radix_value);
-		}
-		else
-		{
-			//printf("Node numero %d value = %d", i, stack_a->value);
-			printf("%d\n\n", stack_a->radix_value);
-		}
-		if (stack_a == repo->stack_a_last)
-			ok = 0;
-		stack_a = stack_a->next;
-		i++;
-	}
-	printf("========================\n");
-}
-*/
-////////////////////////////////////////////////////////
 
 int	main(int argc, char *argv[])
 {

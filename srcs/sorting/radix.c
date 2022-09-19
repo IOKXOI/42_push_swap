@@ -6,34 +6,20 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:42:00 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/19 18:37:30 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/19 23:30:00 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	
-
-void	sort_by_index(int *input, t_repo *repo)
+int	sorting_by_radix_value(int *input, int last_saved, int index, t_repo *repo)
 {
 	int	i;
-	int	index;
 	int	actual_min;
-	int	last_number_saved;
 
 	i = 0;
-	last_number_saved = input[i];
-	i++;
-	while (i < repo->size)
-	{
-		if (input[i] < last_number_saved)
-			last_number_saved = input[i];
-		i++;
-	}
-	i = 0;
-	index = 0 ;
-	get_value_in_node(last_number_saved, index, repo);
-	index++;
+	get_value_in_node(last_saved, 0, repo);
+	index = 1 ;
 	while (index < repo->size)
 	{
 		actual_min = INT_MAX;
@@ -41,19 +27,36 @@ void	sort_by_index(int *input, t_repo *repo)
 		{
 			if (input[i] <= actual_min)
 			{
-				if (input[i] > last_number_saved)
+				if (input[i] > last_saved)
 					actual_min = input[i];
 			}
 			i++;
 		}
 		get_value_in_node(actual_min, index, repo);
-		last_number_saved = actual_min;
+		last_saved = actual_min;
 		index++;
 		i = 0;
 	}
+	return (actual_min);
+}
+
+void	sort_by_index(int *input, t_repo *repo)
+{
+	int	i;
+	int	index;
+	int	last_saved;
+
 	i = 0;
+	last_saved = input[i];
+	i++;
+	index = 0 ;
 	while (i < repo->size)
+	{
+		if (input[i] < last_saved)
+			last_saved = input[i];
 		i++;
+	}
+	sorting_by_radix_value(input, last_saved, index, repo);
 	free(input);
 }
 
@@ -69,42 +72,6 @@ void	push_all_in_stack_a(t_repo *repo)
 	}
 	pa(repo);
 }
-/*
-void	print_stacks(t_repo *repo)
-{
-	t_stack	*stack_a = repo->stack_a_first;
-	t_stack	*stack_b = repo->stack_b_first;
-	
-	int a = 1;
-	int b = 1;
-	
-	if (stack_a)
-	{
-		printf("STACK_A\n");
-		while (a)
-		{
-			if (stack_a == repo->stack_a_last)
-				a = 0;
-			printf("radix_value = %d |\n", stack_a->radix_value);
-			stack_a = stack_a->next;
-		}
-	}
-	printf("_________________\n");
-	if (stack_b)
-	{
-		printf("STACK_b\n");
-		while (b)
-		{
-			if (stack_b == repo->stack_b_last)
-				b = 0;
-			printf("radix_value = %d |\n", stack_b->radix_value);
-			stack_b = stack_b->next;
-		}
-	}
-	printf("                 \n");
-//	printf("==================\n");
-}
-*/
 
 void	radix(t_repo *repo)
 {

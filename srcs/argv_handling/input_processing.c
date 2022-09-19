@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:01:27 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/10 00:49:57 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/19 21:32:25 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ static void	check_int(long long nb, int sign, int *input)
 	}
 }
 
+static int	go_to_numbers(int *sign, int k, char *argv)
+{
+	while (argv[k] == ' ' || (argv[k] >= 9 && argv[k] <= 13)
+		|| argv[k] == '+' || argv[k] == '-')
+	{
+		if (argv[k] == '-')
+			*sign *= -1;
+		k++;
+	}
+	return (k);
+}
+
 static int	ft_multi_atoi(int *input, int count, char *argv, int sign)
 {
 	size_t	nb;
@@ -31,13 +43,7 @@ static int	ft_multi_atoi(int *input, int count, char *argv, int sign)
 	while (argv[k])
 	{
 		nb = 0;
-		while (argv[k] == ' ' || (argv[k] >= 9 && argv[k] <= 13)
-			|| argv[k] == '+' || argv[k] == '-')
-		{
-			if (argv[k] == '-')
-				sign *= -1;
-			k++;
-		}
+		k = go_to_numbers(&sign, k, argv);
 		if (argv[k] >= '0' && argv[k] <= '9')
 		{
 			while (argv[k] >= '0' && argv[k] <= '9')

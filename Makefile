@@ -6,7 +6,7 @@
 #    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/03 18:58:29 by sydauria          #+#    #+#              #
-#    Updated: 2022/09/19 18:02:48 by sydauria         ###   ########.fr        #
+#    Updated: 2022/09/19 21:17:09 by sydauria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ SRC_FREE=$(addprefix free/, \
 					free.c)
 
 SRC_MOOVE=$(addprefix mooves/, \
-			move.c\
+			moove.c\
+			moove_2.c\
 			stack_3.c\
 			stack_four.c\
 			smalls_stacks.c)

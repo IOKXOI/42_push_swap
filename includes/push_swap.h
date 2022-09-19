@@ -6,18 +6,18 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:46 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/19 18:03:23 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/19 23:28:54 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdlib.h>
-#include <stddef.h>
-#include <limits.h>
-#include <unistd.h>
-#include <stdio.h>
+# include <stdlib.h>
+# include <stddef.h>
+# include <limits.h>
+# include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -46,7 +46,7 @@ void	is_already_sorted(int *input, t_repo *repo);
 ///////////////////////////////////////////////////////////////////////////////
 
 // CONVERT_TO_INT* ////////////////////////////////////////////////////////////
-int*	fill_input(t_repo *repo, char **argv);
+int		*fill_input(t_repo *repo, char **argv);
 ///////////////////////////////////////////////////////////////////////////////
 
 // FREE ///////////////////////////////////////////////////////////////////////
@@ -81,13 +81,6 @@ void	cba(t_repo *repo);
 void	stack_two_three(t_repo *repo);
 void	stack_four(t_repo *repo);
 void	stack_five_max(t_repo *repo);
-
-//void	rb(t_repo *repo);
-//void	rr(t_repo *repo);
-//void	rra(t_repo *repo);
-//void	rrb(t_repo *repo);
-//void	rrr(t_repo *repo);
 ///////////////////////////////////////////////////////////////////////////////
 
-void print_stacks(t_repo *repo);
-# endif
+#endif
