@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 17:51:05 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/15 04:59:36 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:15:18 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	get_value_in_node(int node_value, int index, t_repo *repo)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = repo->stack_a_first;
 	while (node_value != stack->value)

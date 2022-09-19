@@ -6,14 +6,14 @@
 #    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/03 18:58:29 by sydauria          #+#    #+#              #
-#    Updated: 2022/09/11 18:02:39 by sydauria         ###   ########.fr        #
+#    Updated: 2022/09/19 18:02:48 by sydauria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=push_swap
 NAMEDEBUGG=push_swap
 CC=gcc
-CFLAGS=-Wall -Werror -Wextra -MMD -g3 -O0
+CFLAGS=-Wall -Werror -Wextra -MMD -g
 SRCDIR=./srcs/
 OBJSDIR=./objs/
 INCLUDES=./includes
@@ -37,7 +37,10 @@ SRC_FREE=$(addprefix free/, \
 					free.c)
 
 SRC_MOOVE=$(addprefix mooves/, \
-			move.c)
+			move.c\
+			stack_3.c\
+			stack_four.c\
+			smalls_stacks.c)
 
 
 SRCS = $(addprefix $(SRCDIR), $(SRC_ARGV_HANDLING)\

@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:01:34 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/09 19:26:55 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:14:56 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	parsing(char **input)
 	while (input[k])
 	{
 		retrn = arg_check_and_count(input[k]);
-		if (retrn == 0) //check format argv = a.out 10 "0" "" 9 
+		if (retrn == 0)
 		{
 			write(2, "Error\n", 6);
 			return (0);

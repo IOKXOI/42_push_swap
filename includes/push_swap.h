@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:46 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/15 02:02:51 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:03:23 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-
-typedef struct s_repo
+typedef struct t_repo
 {
 	int		size;
 	t_stack	*stack_a;
@@ -68,13 +67,21 @@ void	push_all_in_stack_a(t_repo *repo);
 ///////////////////////////////////////////////////////////////////////////////
 
 // MOOVES /////////////////////////////////////////////////////////////////////
-void	connect_node(t_stack *a, t_stack *b, t_stack *c, t_stack *d);
 void	sa(t_repo *repo);
-//void	sb(t_stack *stack_b, t_repo *repo);
-//void	ss(t_stack *stack_a, t_stack *stack_b, t_repo *repo);
+void	sb(t_repo *repo);
 void	pa(t_repo *repo);
 void	pb(t_repo *repo);
 void	ra(t_repo *repo);
+void	rra(t_repo *repo);
+void	acb(t_repo *repo);
+void	bca(t_repo *repo);
+void	bac(t_repo *repo);
+void	cab(t_repo *repo);
+void	cba(t_repo *repo);
+void	stack_two_three(t_repo *repo);
+void	stack_four(t_repo *repo);
+void	stack_five_max(t_repo *repo);
+
 //void	rb(t_repo *repo);
 //void	rr(t_repo *repo);
 //void	rra(t_repo *repo);
@@ -82,5 +89,5 @@ void	ra(t_repo *repo);
 //void	rrr(t_repo *repo);
 ///////////////////////////////////////////////////////////////////////////////
 
-void print_stack(t_repo *repo);
+void print_stacks(t_repo *repo);
 # endif
