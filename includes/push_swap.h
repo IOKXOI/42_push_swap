@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 16:53:46 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/19 23:28:54 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/23 07:33:14 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	push_all_in_stack_a(t_repo *repo);
 ///////////////////////////////////////////////////////////////////////////////
 
 // MOOVES /////////////////////////////////////////////////////////////////////
+int		best_rotation(t_repo *repo);
 void	sa(t_repo *repo);
 void	sb(t_repo *repo);
 void	pa(t_repo *repo);
@@ -81,6 +82,8 @@ void	cba(t_repo *repo);
 void	stack_two_three(t_repo *repo);
 void	stack_four(t_repo *repo);
 void	stack_five_max(t_repo *repo);
+void	ra_rotation(t_repo *repo);
+void	rra_rotation(t_repo *repo);
 ///////////////////////////////////////////////////////////////////////////////
 
 #endif

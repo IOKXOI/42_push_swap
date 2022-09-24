@@ -6,14 +6,14 @@
 #    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/03 18:58:29 by sydauria          #+#    #+#              #
-#    Updated: 2022/09/19 21:17:09 by sydauria         ###   ########.fr        #
+#    Updated: 2022/09/23 08:56:40 by sydauria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=push_swap
 NAMEDEBUGG=push_swap
 CC=gcc
-CFLAGS=-Wall -Werror -Wextra -MMD -g
+CFLAGS=-Wall -Werror -Wextra -MMD
 SRCDIR=./srcs/
 OBJSDIR=./objs/
 INCLUDES=./includes
@@ -75,7 +75,7 @@ $(BUILD)/%.o: %.c ./includes/*.h
 	
 #$(NAMEDEBUGG): $(OBJECTS)
 #	$(CC) $(OBJECTS) $(INCLUDES) -o $@
-#	
+	
 #$(BUILDDEBBUG)/%.o: %.c ./includes/*.h
 #	$(CC) $(CFLAGS) -g $(INCLUDES) -c $< -o $@
 

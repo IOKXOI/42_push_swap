@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:58:58 by sydauria          #+#    #+#             */
-/*   Updated: 2022/09/19 18:14:15 by sydauria         ###   ########.fr       */
+/*   Updated: 2022/09/24 18:48:28 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	is_already_sorted_list(t_repo *repo)
 		}
 		else if (check > stack_a->value)
 			return (0);
-		if (stack_a == repo->stack_a_last || !stack_a)
+		if (stack_a == repo->stack_a_first || !stack_a)
 			loop = 0;
 	}
 	return (1);
